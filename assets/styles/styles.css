@@ -1,0 +1,265 @@
+/* https://tailwindcss.com/docs/customizing-colors */
+:root {
+  --zinc-100: #fafafa;
+  --gray-200: #e5e7eb;
+  --gray-400: #9ca3af;
+  font-family: 'Poppins', sans-serif;
+  font-size: .9rem;
+}
+
+.--active {
+  background: black;
+  color: white;
+}
+.--visible {
+  display: flex !important;
+}
+
+button {
+  border: none;
+  padding: .7rem;
+  border-radius: 7px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button.primary {
+  background: black;
+  color: white;  
+  margin-top: 1rem;
+}
+
+section {
+  padding: 0 5rem;
+}
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  flex-direction: column;
+}
+.logo-wrapper > h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  text-align: center;
+}
+.logo-wrapper > img {
+  width: 357px
+}
+.logo-wrapper .__line {
+  width: 357px;
+  margin: 1rem 0;
+  border-bottom: 1px solid;
+}
+
+.top-menu-wrapper {
+  margin-bottom: 4rem;
+}
+.top-menu-wrapper > ul {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.top-menu-wrapper > ul li {
+  padding: 1rem;
+  border: 1px solid #808080;
+  border-radius: 1rem;
+  box-shadow: 10px 5px 20px 0px var(--gray-200);
+  cursor: pointer;
+}
+.top-menu-wrapper > ul li:hover {
+  transition: .3s;
+  background: black;
+  color: white;
+}
+
+.properties-wrapper .__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.properties-wrapper .__property {
+  width: 500px;
+  display: flex;
+  border-radius: 1rem;
+  align-items: center;
+  box-shadow: 10px 5px 20px 0px var(--gray-200);
+  position: relative;
+}
+
+.properties-wrapper .__property .__type {
+  border-bottom: 1px solid;
+  font-weight: 100;
+}
+.properties-wrapper .__property .__icons {
+  cursor: pointer;
+  font-size: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: .5rem;
+}
+
+.properties-wrapper .__property .__icons span {
+  position: relative;
+}
+
+.properties-wrapper .__property .__icons span[data-title]:hover::after {
+  font-family: 'Poppins', sans-serif;
+  content: attr(data-title);
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  font-size: .7rem;
+  font-weight: 500;
+  background-color: black;
+  color: white;
+  padding: .5rem;
+  border-radius: 5px;
+  z-index: 3;
+}
+
+.properties-wrapper .__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.properties-wrapper .__description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+.properties-wrapper .__resume-address {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.properties-wrapper .__value {
+  font-weight: 700;
+  text-align: end;
+  font-size: 1.2rem;
+}
+.properties-wrapper .__thumbnail {
+  width: 250px;
+  border-radius: 1rem;
+  box-shadow: 5px 0px 20px 0px var(--gray-400)
+}
+
+.modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgb(128 128 128 / 50%);
+  position: fixed;
+  top: 0;
+}
+
+.modal-visible {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.modal .__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 500px;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: var(--zinc-100);
+  box-shadow: 5px 0px 20px 0px var(--gray-400);
+}
+
+.modal .__content h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: .4rem;
+  text-decoration: underline;
+}
+
+.modal .__content .__property-info h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.modal .__content .__form {
+  display: none;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.modal .__content .__form .__field {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.modal .__content .__form .__field label {
+  font-weight: 500;
+}
+.modal .__content .__form .__field input {
+  border-radius: 5px;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: none;
+  background: var(--gray-200);
+  outline: none;
+}
+
+.modal .__content .__visits {
+  display: none;
+  flex-direction: column;
+}
+
+.modal .__content .__visits ul#visits-list li {
+  display: flex;
+  justify-content: space-between;
+  background: #80808021;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.modal .__content .__visits ul#visits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal .__content .__visits .__none-visit {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 2rem;
+}
+
+.modal .__content .__visits .__none-visit div > span {
+  font-size: 3rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2f2f2f;
+  padding: 1rem;
+  margin-top: 3rem;
+  color: white;
+}
+
+footer h4 {
+  font-size: 1rem
+}
