@@ -9,7 +9,7 @@ Principais funcionalidades:
 - **Cadastro de visitas**: marcação de visita para uma determinada propriedade;
 - **Listagem das visitas**: lista as visitas de cada propriedade.
 
-![Print da plataforma](./assets/images/print.png "Print da plataforma")
+![Print da plataforma](./assets/images/print.jpeg "Print da plataforma")
 
 ---
 ## Implementação das funcionaidades

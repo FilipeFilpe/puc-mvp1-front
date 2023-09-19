@@ -29,7 +29,20 @@ function closeModal() {
 
   addElementInPropertyInfoModal('');
 };
+function resetForm() {  
+  document.getElementById("name").value = '';
+  document.getElementById("email").value = '';
+  document.getElementById("phone").value = '';
+  document.getElementById("date").value = '';
+  document.getElementById("property_id").value = '';
+}
 
+/**
+ * Função que pega os valores do formulário de visita e com eles monta um FormData,
+ * esse FormData é enviado a API para adicionar a uma propriedade uma nova visita.
+ * 
+ * @returns 
+ */
 async function addVisit() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -55,8 +68,8 @@ async function addVisit() {
   })
     .then((response) => response.json())
     .then((data) => {
-      addElementInPropertyInfoModal('');
       closeModal();
+      resetForm();
       alert('Visita marcada com sucesso!!');
     })
     .catch((error) => {
@@ -64,6 +77,13 @@ async function addVisit() {
     });
 }
 
+/**
+ * Função que faz a busca na API por uma única propriedade confoeme o id passado,
+ *  e monta em tela o modal para adicionar uma visita a essa propriedade.
+ * 
+ * @param {integer} propertyId 
+ * @returns 
+ */
 async function propertyInfoToModal(propertyId) {
   const property = await fetch(`${BASE_URL}/property?id=${propertyId}`, { method: 'GET' })
     .then(data => data.json())
@@ -99,9 +119,12 @@ async function propertyInfoToModal(propertyId) {
       Nenhuma visita agendada para essa propriedade
     </div>
   </div>`
-
 }
 
+/**
+ * Função que faz a busca a API das propriedades
+ *  e monta a listagem de propriedade em tela.
+ */
 async function getProperties() {
   const { properties } = await fetch(`${BASE_URL}/properties`, { method: 'GET' })
     .then(data => data.json())
@@ -157,6 +180,7 @@ async function getProperties() {
 
 getProperties();
 
+// Mascara do campo telefone
 IMask(
   document.getElementById('phone'),
   {
